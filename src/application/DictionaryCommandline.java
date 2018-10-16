@@ -1,4 +1,4 @@
-package oop2018;
+package application;
 
 public class DictionaryCommandline {
 	private DictionaryManager dictionaryManager;

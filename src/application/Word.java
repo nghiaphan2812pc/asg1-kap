@@ -1,4 +1,4 @@
-package oop2018;
+package application;
 
 public class Word {
 	private String word_target;
