@@ -28,9 +28,7 @@ public class SQLiteJDBCDriverConnection {
 	 */
 	public void connect() {
 		try {
-			// db parameters
-			String url = "jdbc:sqlite:C:/sqlite/dict.sqlite";
-			// create a connection to the database
+			String url = "jdbc:sqlite:resources/dict.sqlite";
 			connection = DriverManager.getConnection(url);
 			connection.setAutoCommit(false);
 			System.out.println("Connection to SQLite has been established.");
@@ -105,9 +103,9 @@ public class SQLiteJDBCDriverConnection {
 	public static void main(String[] args) {
 		SQLiteJDBCDriverConnection sqLiteJDBCDriverConnection = new SQLiteJDBCDriverConnection();
 		sqLiteJDBCDriverConnection.connect();
-		ArrayList<Word> dict = 	sqLiteJDBCDriverConnection.executeSQLSelectQuery("SELECT * FROM tbl_edict WHERE idx=2;");
+		ArrayList<Word> dict = 	sqLiteJDBCDriverConnection.executeSQLSelectQuery("SELECT * FROM tbl_edict WHERE word LIKE \'pe%\';");
 		for(Word w: dict) {
-			System.out.println(w.getWordTarget());
+			System.out.println(w.getWordExplanain());
 		}
 		sqLiteJDBCDriverConnection.disconnect();
 	}
